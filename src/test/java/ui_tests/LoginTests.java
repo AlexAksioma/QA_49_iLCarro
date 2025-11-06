@@ -18,10 +18,11 @@ public class LoginTests extends ApplicationManager {
                 .username("bilbo_baggins_12345@mail.com")
                 .password("Password123!")
                 .build();
-        logger.info("start test" + method.getName() + " with data " + user);
+        logger.info("start test " + method.getName() + " with data " + user);
         new HomePage(getDriver()).clickBtnLoginHeader();
         LoginPage loginPage = new LoginPage(getDriver());
         loginPage.typeLoginForm(user);
+        logger.error("Example error");
         Assert.assertTrue(loginPage.isLoggedDisplayed());
     }
 
