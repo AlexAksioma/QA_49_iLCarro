@@ -64,7 +64,7 @@ public class SearchCarTests extends ApplicationManager {
     @Test
     public void searchNegativeTest_firstDateAfterSecondDate(){
         String city = "Haifa";
-        LocalDate dateTo = LocalDate.of(2025, 12, 1);
+        LocalDate dateTo = LocalDate.of(2025, 12, 11);
         LocalDate dateFrom = LocalDate.of(2025, 12, 22);
         homePage.typeSearchFormWOJS(city, dateFrom, dateTo);
         Assert.assertTrue(homePage.isTextInErrorPresent("Second date must be after first date"));
@@ -74,9 +74,9 @@ public class SearchCarTests extends ApplicationManager {
     @Test
     public void searchPositiveTestCalendar(){
         String city = "Haifa";
-        LocalDate dateFrom = LocalDate.of(2026, 10, 1);
-        LocalDate dateTo = LocalDate.of(2025, 12, 22);
+        LocalDate dateFrom = LocalDate.of(2025, 12, 22);
+        LocalDate dateTo = LocalDate.of(2026, 5, 11);
         homePage.typeSearchFormCalendar(city, dateFrom, dateTo);
-
+        Assert.assertTrue(homePage.urlContains("results",5));
     }
 }
